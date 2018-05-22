@@ -1,0 +1,126 @@
+﻿
+@{
+    ViewBag.Title = "NLOG";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2> . </h2>
+<h2> . </h2>
+<h3> ERROR LOGGED WITH NLOG</h3>
+<div class="page-contentbar">
+    <!-- START PAGE CONTENT -->
+    <div id="page-right-content">
+        <div class="container">
+                </div> <!-- end row -->
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h4 class="header-title m-t-0 m-b-20">Send Mail</h4>
+                        </div>
+                    </div> <!-- end row -->
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <form class="form-horizontal" role="form" method="post" id="mailForm">
+                                        <div class="form-group">
+                                            <label class="col-md-2 control-label">From</label>
+                                            <div class="col-md-10">
+                                                <input type="email" id="from" name="from" class="form-control" autocomplete="off">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-2 control-label" for="example-email">Recipient</label>
+                                            <div class="col-md-10">
+                                                <input type="email" id="to" name="to" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-2 control-label">Message</label>
+                                            <div class="col-md-10">
+                                                <input type="text" class="form-control" placeholder="Enter Message" id="message" name="message">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-primary">Send</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- end row -->
+                        </div> <!-- end col -->
+                    </div>
+                </div>
+                <!-- end container -->
+            </div>
+            <!-- End #page-right-content -->
+        </div>
+        <!-- end .page-contentbar -->
+    
+@*@section scripts{
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script>
+        $(function () {
+
+            $('#mailForm').validate({
+
+                rules: {
+                    from: {
+                        email: true,
+                        required: true
+                    },
+                    to: {
+                        email: true,
+                        required: true
+                    },
+                    message: {
+                        required: true
+                    }
+
+                },
+
+                messages: {
+                    from: {
+                        email: 'Please enter a valid email',
+                        required: 'please enter your Email'
+                    }
+                }
+            });
+
+            $('#mailForm').bind('submit', function (ev) {
+
+                ev.preventDefault(false);
+
+                if (!$(ev.target).valid()) {
+                    return;
+                }
+
+                var formData = {};
+                formData.To = $('#to').val();
+                formData.From = $('#From').val();
+                formData.Body = $('#message').val();
+
+
+
+                $.ajax({
+                    url: '/api/settingsapi/contact',
+                    type: 'POST',
+                    contentType: 'application/json; charset=utf-8',
+                    data: JSON.stringify(formData),
+                    error: function () {
+
+                        alert('error occurred, try again');
+                    },
+                    success: function () {
+                        window.location("Success");
+                        alert("SENT");
+
+                    }
+                });
+
+            });
+
+        })
+    </script>
+}*@
+
+
